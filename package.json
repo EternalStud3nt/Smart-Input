@@ -1,0 +1,22 @@
+{
+  "name": "com.eternal-stud3nt.smart-input",
+  "version": "1.0.1",
+  "displayName": "Smart Input",
+  "description": "An easier way to handle input",
+  "unity": "2022.3",
+  "dependencies": {
+    "com.unity.inputsystem": "1.7.0"
+  },
+  "samples": [
+
+    {
+
+      "displayName": "Samples",
+
+      "description": "Sample assets for smart input",
+
+      "path": "Samples~"
+
+    }
+  ]
+}
