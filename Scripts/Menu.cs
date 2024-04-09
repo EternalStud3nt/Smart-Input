@@ -8,8 +8,8 @@ namespace SmartInput
         [SerializeField] protected float animationDuration;
 
         protected RectTransform menuRectTransform;
+        protected bool isOpen { get; private set; } = true;
 
-        private bool isOpen = true;
         private Vector2 originalSize;
 
         protected virtual void Start()
