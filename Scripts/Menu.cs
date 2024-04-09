@@ -5,13 +5,14 @@ namespace SmartInput
     public class Menu : MonoBehaviour
     {
         [Range(0f, 1f)]
-        [SerializeField] private float animationDuration;
+        [SerializeField] protected float animationDuration;
+
+        protected RectTransform menuRectTransform;
 
         private bool isOpen = true;
-        private RectTransform menuRectTransform;
         private Vector2 originalSize;
 
-        private void Start()
+        protected virtual void Start()
         {
             menuRectTransform = GetComponent<RectTransform>();
             originalSize = menuRectTransform.sizeDelta;
@@ -19,7 +20,7 @@ namespace SmartInput
             Close();
         }
 
-        public void Open()
+        public virtual void Open()
         {
             if (!isOpen)
             {
@@ -28,7 +29,7 @@ namespace SmartInput
             }
         }
 
-        public void Close()
+        public virtual void Close()
         {
             if (isOpen)
             {
@@ -37,7 +38,7 @@ namespace SmartInput
             }
         }
 
-        private void AnimateSize(Vector2 newSize)
+        protected virtual void AnimateSize(Vector2 newSize)
         {
             menuRectTransform.sizeDelta = newSize;
         }
