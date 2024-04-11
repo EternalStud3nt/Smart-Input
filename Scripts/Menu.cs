@@ -8,7 +8,7 @@ namespace SmartInput
         [SerializeField] protected float animationDuration;
 
         protected RectTransform menuRectTransform;
-        protected bool isOpen { get; private set; } = true;
+        protected bool IsOpen { get; private set; } = true;
 
         private Vector2 originalSize;
 
@@ -22,19 +22,19 @@ namespace SmartInput
 
         public virtual void Open()
         {
-            if (!isOpen)
+            if (!IsOpen)
             {
                 LeanTween.value(gameObject, AnimateSize, Vector2.zero, originalSize, animationDuration);
-                isOpen = true;
+                IsOpen = true;
             }
         }
 
         public virtual void Close()
         {
-            if (isOpen)
+            if (IsOpen)
             {
                 LeanTween.value(gameObject, AnimateSize, menuRectTransform.sizeDelta, Vector2.zero, animationDuration);
-                isOpen = false;
+                IsOpen = false;
             }
         }
 
