@@ -6,9 +6,9 @@ namespace SmartInput
 {
     public class SmartButton  : MonoBehaviour
     {
-        public UnityEvent OnButtonHold;
-        public UnityEvent OnButtonPress;
-        public UnityEvent OnButtonRelease;
+        public UnityEvent OnButtonHold = new UnityEvent();
+        public UnityEvent OnButtonPress = new UnityEvent();
+        public UnityEvent OnButtonRelease = new UnityEvent();
 
         private bool startedHoldHere;
 
