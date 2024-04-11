@@ -6,12 +6,9 @@ namespace SmartInput
 {
     public class SmartButton  : MonoBehaviour
     {
-        [SerializeField] private UnityEvent OnButtonHold;
-        [SerializeField] private UnityEvent OnButtonPress;
-        [SerializeField] private UnityEvent OnButtonRelease;
-
-        [SerializeField] private Button button;
-        [SerializeField] private Image mask;
+        public UnityEvent OnButtonHold;
+        public UnityEvent OnButtonPress;
+        public UnityEvent OnButtonRelease;
 
         private bool startedHoldHere;
 
