@@ -24,7 +24,7 @@ namespace SmartInput
         {
             if (!IsOpen)
             {
-                LeanTween.value(gameObject, AnimateSize, Vector2.zero, originalSize, animationDuration);
+                LeanTween.value(gameObject, AnimateSize, Vector2.zero, originalSize, animationDuration).setIgnoreTimeScale(true);
                 IsOpen = true;
             }
         }
