@@ -6,7 +6,7 @@ namespace SmartInput
 {
     public class InputManager : MonoBehaviour
     {
-        [SerializeField] private InputHandler inputHandler;
+        [SerializeField] protected InputHandler inputHandler;
 
         private Vector2 pointerPosition => inputHandler.PointerPosition;
 
