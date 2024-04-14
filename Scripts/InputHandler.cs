@@ -6,21 +6,21 @@ namespace SmartInput
 {
     public class InputHandler : MonoBehaviour
     {
-        [SerializeField] private InputActionAsset inputActionAsset;
+        [SerializeField] protected InputActionAsset inputActionAsset;
 
-        private InputActionMap actionMap;
-        private InputAction pointAction;
-        private InputAction pressAction;
-        private InputAction holdAction;
+        protected InputActionMap actionMap;
+        protected InputAction pointAction;
+        protected InputAction pressAction;
+        protected InputAction holdAction;
 
         public event Action OnScreenPress;
         public event Action OnScreenRelease;
         public event Action OnScreenHold;
 
-        public Vector2 PointerPosition { get; private set; }
-        public static InputHandler Instance { get; private set; }
+        public Vector2 PointerPosition { get; protected set; }
+        public static InputHandler Instance { get; protected set; }
 
-        private void Awake()
+        protected virtual void Awake()
         {
             if (Instance == null)
             {
@@ -42,7 +42,7 @@ namespace SmartInput
             RegisterInputActions();
         }
 
-        private void RegisterInputActions()
+        protected virtual void RegisterInputActions()
         {
             // Point
             pointAction.performed += context => PointerPosition = context.ReadValue<Vector2>();
@@ -55,14 +55,14 @@ namespace SmartInput
             holdAction.performed += context => OnScreenHold.Invoke();
         }
 
-        private void OnEnable()
+        protected virtual void OnEnable()
         {
             pointAction.Enable();
             pressAction.Enable();
             holdAction.Enable();
         }
 
-        private void OnDisable()
+        protected virtual void OnDisable()
         {
             pointAction.Disable();
             pressAction.Disable();

@@ -14,9 +14,17 @@ namespace SmartInput
         public bool IsPointerOverUI => EventSystem.current.IsPointerOverGameObject();
         public Vector2 DragStartPos { get; private set; }
         public Vector2 Drag { get; private set; }
-        public bool PressingScreen { get; private set; } 
+        public bool PressingScreen { get; private set; }
 
 
+        public virtual List<RaycastResult> RaycastPointer()
+        {
+            PointerEventData eventData = new PointerEventData(EventSystem.current);
+            eventData.position = pointerPosition;
+            List<RaycastResult> raysastResults = new List<RaycastResult>();
+            EventSystem.current.RaycastAll(eventData, raysastResults);
+            return raysastResults;
+        }
 
         protected virtual void Awake()
         {
@@ -60,15 +68,6 @@ namespace SmartInput
                 Vector2 _drag = Camera.main.ScreenToWorldPoint(pointerPosition) - Camera.main.ScreenToWorldPoint(DragStartPos);
                 Drag = new Vector2(_drag.x, _drag.y);
             }
-        }
-
-        public List<RaycastResult> RaycastPointer()
-        {
-            PointerEventData eventData = new PointerEventData(EventSystem.current);
-            eventData.position = pointerPosition;
-            List<RaycastResult> raysastResults = new List<RaycastResult>();
-            EventSystem.current.RaycastAll(eventData, raysastResults);
-            return raysastResults;
         }
 
     }
