@@ -70,5 +70,12 @@ namespace SmartInput
             }
         }
 
+        protected virtual void OnDestroy()
+        {
+            inputHandler.OnScreenPress -= OnScreenPress;
+            inputHandler.OnScreenRelease -= OnScreenRelease;
+            inputHandler.OnScreenHold -= OnScreenHold;
+        }
+
     }
 }
