@@ -6,9 +6,10 @@ namespace SmartInput
 {
     public class InputManager : MonoBehaviour
     {
-        [SerializeField] protected InputHandler inputHandler;
 
         private Vector2 pointerPosition => inputHandler.PointerPosition;
+
+        protected InputHandler inputHandler;
 
         public static InputManager Instance { get; private set; }
         public bool IsPointerOverUI => EventSystem.current.IsPointerOverGameObject();
