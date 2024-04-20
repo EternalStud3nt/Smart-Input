@@ -4,14 +4,12 @@ using UnityEngine.EventSystems;
 
 namespace SmartInput
 {
-    public class InputManager : MonoBehaviour
+    public class InputManager : Singleton<InputManager> 
     {
+        [SerializeField] protected InputHandler inputHandler;
 
         private Vector2 pointerPosition => inputHandler.PointerPosition;
 
-        protected InputHandler inputHandler;
-
-        public static InputManager Instance { get; private set; }
         public bool IsPointerOverUI => EventSystem.current.IsPointerOverGameObject();
         public Vector2 DragStartPos { get; private set; }
         public Vector2 Drag { get; private set; }
@@ -27,16 +25,9 @@ namespace SmartInput
             return raysastResults;
         }
 
-        protected virtual void Awake()
+        protected override void Awake()
         {
-            if (Instance == null)
-            {
-                Instance = this;
-            }
-            else
-            {
-                Destroy(gameObject);
-            }
+            base.Awake();
 
             PressingScreen = false;
             inputHandler.OnScreenPress += OnScreenPress;

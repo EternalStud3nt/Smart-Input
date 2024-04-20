@@ -4,7 +4,7 @@ using UnityEngine.InputSystem;
 
 namespace SmartInput
 {
-    public class InputHandler : MonoBehaviour
+    public class InputHandler : Singleton<InputHandler>
     {
         [SerializeField] protected InputActionAsset inputActionAsset;
 
@@ -18,19 +18,10 @@ namespace SmartInput
         public event Action OnScreenHold;
 
         public Vector2 PointerPosition { get; protected set; }
-        public static InputHandler Instance { get; protected set; }
 
-        protected virtual void Awake()
+        protected override void Awake()
         {
-            if (Instance == null)
-            {
-                Instance = this;
-                DontDestroyOnLoad(gameObject);
-            }
-            else
-            {
-                Destroy(gameObject);
-            }
+            base.Awake();
 
             actionMap = inputActionAsset.FindActionMap("Screen");
 
