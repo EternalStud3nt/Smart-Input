@@ -22,18 +22,21 @@ namespace SmartInput
         protected override void Awake()
         {
             base.Awake();
+            FindInputActions();
+            HandleInputActions();
+        }
 
+        protected virtual void FindInputActions()
+        {
             actionMap = inputActionAsset.FindActionMap("Screen");
 
             // Actions
             pointAction = actionMap.FindAction("Point");
             pressAction = actionMap.FindAction("Press");
             holdAction = actionMap.FindAction("Hold");
-
-            RegisterInputActions();
         }
 
-        protected virtual void RegisterInputActions()
+        protected virtual void HandleInputActions()
         {
             // Point
             pointAction.performed += context => PointerPosition = context.ReadValue<Vector2>();
