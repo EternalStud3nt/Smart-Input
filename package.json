@@ -1,8 +1,8 @@
 {
-  "name": "com.eternal-stud3nt.smart-input",
+  "name": "com.eternal-stud3nt.touch-input",
   "version": "1.0.1",
-  "displayName": "Smart Input",
-  "description": "An easier way to handle input",
+  "displayName": "Touch Input",
+  "description": "An easier way to handle touch input",
   "unity": "2022.3",
   "dependencies": {
     "com.unity.inputsystem": "1.7.0"
@@ -13,7 +13,7 @@
 
       "displayName": "Samples",
 
-      "description": "Sample assets for smart input",
+      "description": "Sample assets for touch input",
 
       "path": "Samples~"
 

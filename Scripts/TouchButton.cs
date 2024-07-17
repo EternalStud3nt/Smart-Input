@@ -4,7 +4,7 @@ using UnityEngine.UI;
 
 namespace SmartInput
 {
-    public class SmartButton  : MonoBehaviour
+    public class TouchButton  : MonoBehaviour
     {
         public UnityEvent OnButtonHold = new UnityEvent();
         public UnityEvent OnButtonPress = new UnityEvent();
